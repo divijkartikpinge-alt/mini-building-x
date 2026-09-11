@@ -1,16 +1,8 @@
-# Python
-__pycache__/
-*.py[cod]
+git add 
+git statusps __pycache__/
+*.pyc
 .venv/
+backend/.venv/
+.pytest_cache/
+backend/data/
 *.db
-
-# Angular
-node_modules/
-dist/
-.angular/
-
-# Go
-bin/
-
-# Editors
-.vscode/
