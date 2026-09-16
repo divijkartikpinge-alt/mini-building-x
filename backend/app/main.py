@@ -1,4 +1,4 @@
-# API version: v1-alpha
+# API version: v2-beta
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from typing import AsyncIterator
