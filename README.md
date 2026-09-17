@@ -6,7 +6,7 @@ Mini Building X is a small full-stack project with a FastAPI backend, an Angular
 
 - `backend/` - FastAPI application and SQLite access
 - `frontend/` - Angular application
-- `sensor-sim/` - Go simulator placeholder
+- `sensor-sim/act-layer/` - Go Act-layer threshold checker
 
 ## Local development
 
@@ -31,6 +31,12 @@ npm start
 ### Sensor simulator
 
 ```text
-cd sensor-sim
-go run .
+cd sensor-sim/act-layer
+go run . 31.5
 ```
+
+The first Act-layer rule is: temperatures above 30 C require cooling.
+
+Angular matches a URL by comparing it with the route definitions in order, then renders the component attached to the first matching route inside `router-outlet`. A wildcard route handles URLs that match nothing else.
+
+An Observable can emit zero, one, or many values over time and can be cancelled; a Promise resolves once with one eventual value. `unsubscribe()` cancels an Observable subscription and releases its resources. Skipping it can retain callbacks and component state after a component is gone, causing memory leaks when the source keeps emitting.

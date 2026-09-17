@@ -1,11 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { Component } from '@angular/core';
+import { appConfig } from './app/app.config';
+import { App } from './app/app';
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  template: '<h1>Mini Building X</h1>'
-})
-class AppComponent {}
-
-bootstrapApplication(AppComponent).catch((error) => console.error(error));
+bootstrapApplication(App, appConfig)
+  .catch((err) => console.error(err));
