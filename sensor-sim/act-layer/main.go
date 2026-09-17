@@ -1,4 +1,5 @@
 package main
+package main
 
 import (
 	"errors"
@@ -7,7 +8,7 @@ import (
 	"strconv"
 )
 
-const temperatureThreshold = 30.0
+const temperatureThreshold = 28.0
 
 type SensorReading struct {
 	DeviceID string
