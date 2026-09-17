@@ -1,0 +1,20 @@
+header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+nav {
+	display: flex;
+	gap: 1rem;
+}
+
+main {
+	padding: 1rem 0;
+}
+
+h2 span {
+	color: #16803c;
+	font-size: 0.7em;
+	letter-spacing: 0.08em;
+}

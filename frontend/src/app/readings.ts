@@ -1,13 +1,15 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
-import { ReadingsService, SensorReading } from './readings.service';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { ReadingsService } from './readings.service';
 
 @Component({
   selector: 'app-readings',
+  imports: [AsyncPipe],
   template: `
     <main>
-      <h2>Sensor readings</h2>
+      <h2>Live sensor readings <span>LIVE</span></h2>
       <ul>
-        @for (reading of sensorReadings; track reading.id) {
+        @for (reading of (liveReadings | async) ?? []; track reading.id) {
           <li>
             <strong>{{ reading.name }}</strong>
             <span>{{ reading.value }} {{ reading.unit }}</span>
@@ -17,16 +19,6 @@ import { ReadingsService, SensorReading } from './readings.service';
     </main>
   `,
 })
-export class Readings implements OnInit {
-  protected sensorReadings: SensorReading[] = [];
-
-  private readonly changeDetector = inject(ChangeDetectorRef);
-  private readonly readingsService = inject(ReadingsService);
-
-  ngOnInit(): void {
-    this.readingsService.getReadings().subscribe((readings) => {
-      this.sensorReadings = readings;
-      this.changeDetector.detectChanges();
-    });
-  }
+export class Readings {
+  protected readonly liveReadings = inject(ReadingsService).getLiveReadings();
 }

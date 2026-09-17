@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, Observable, switchMap, timer } from 'rxjs';
 
 interface ApiReading {
   id: number;
@@ -31,6 +31,10 @@ export class ReadingsService {
         unit: this.getMetricUnit(reading.metric),
       }))),
     );
+  }
+
+  getLiveReadings(): Observable<SensorReading[]> {
+    return timer(0, 2000).pipe(switchMap(() => this.getReadings()));
   }
 
   private getMetricName(metric: string): string {

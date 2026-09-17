@@ -28,6 +28,12 @@ npm install
 npm start
 ```
 
+Open `http://localhost:4200/readings`. The readings view polls the backend every two seconds. Post a new reading from another terminal to see it appear without refreshing:
+
+```text
+curl -X POST http://localhost:8000/readings -H "Content-Type: application/json" -d "{\"device_id\":\"temp-live\",\"metric\":\"temperature\",\"value\":31.5}"
+```
+
 ### Sensor simulator
 
 ```text
